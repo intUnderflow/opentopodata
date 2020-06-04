@@ -245,6 +245,10 @@ def _get_dataset(name):
 
 
 @app.route("/")
+def health_check(methods=["GET"]):
+    return jsonify({"ok":True}), 200
+
+
 @app.route("/v1/")
 def get_help_message(methods=["GET", "OPTIONS", "HEAD"]):
     msg = "No dataset name provided."
